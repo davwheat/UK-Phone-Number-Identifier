@@ -1,36 +1,39 @@
 @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins Bold'), local('Poppins-Bold'),
-        url('hinted-Poppins-Bold.woff2') format('woff2'),
-        url('hinted-Poppins-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Poppins";
+  src: local("Poppins Bold"), local("Poppins-Bold"),
+    url("hinted-Poppins-Bold.woff2") format("woff2"),
+    url("hinted-Poppins-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins Bold Italic'), local('Poppins-BoldItalic'),
-        url('hinted-Poppins-BoldItalic.woff2') format('woff2'),
-        url('hinted-Poppins-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
+  font-family: "Poppins";
+  src: local("Poppins Bold Italic"), local("Poppins-BoldItalic"),
+    url("hinted-Poppins-BoldItalic.woff2") format("woff2"),
+    url("hinted-Poppins-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: fallback;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins Medium'), local('Poppins-Medium'),
-        url('hinted-Poppins-Medium.woff2') format('woff2'),
-        url('hinted-Poppins-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Poppins";
+  src: local("Poppins Medium"), local("Poppins-Medium"),
+    url("hinted-Poppins-Medium.woff2") format("woff2"),
+    url("hinted-Poppins-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins Medium Italic'), local('Poppins-MediumItalic'),
-        url('hinted-Poppins-MediumItalic.woff2') format('woff2'),
-        url('hinted-Poppins-MediumItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
+  font-family: "Poppins";
+  src: local("Poppins Medium Italic"), local("Poppins-MediumItalic"),
+    url("hinted-Poppins-MediumItalic.woff2") format("woff2"),
+    url("hinted-Poppins-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: fallback;
 }
-

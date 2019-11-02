@@ -42,7 +42,7 @@ body main p.hint-text {
   margin: auto;
   padding: 0;
   padding-top: 4px;
-  color: #fff6;
+  color: #fff8;
   max-width: calc(100% - 16px);
 }
 body main section#result {
