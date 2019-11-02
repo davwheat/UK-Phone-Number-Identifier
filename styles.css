@@ -22,6 +22,7 @@ body main {
 body main h1 {
   font-size: 4rem;
   max-width: calc(100% - 16px);
+  margin: auto;
 }
 body main input {
   width: 750px;
@@ -33,20 +34,23 @@ body main input {
   border: 5px solid white;
   outline: none;
   color: #fff;
+  margin-top: 16px;
 }
 body main p.hint-text {
   text-transform: lowercase;
   font-size: 0.9rem;
-  margin: 0;
+  margin: auto;
   padding: 0;
   padding-top: 4px;
   color: #fff6;
+  max-width: calc(100% - 16px);
 }
 body main section#result {
   min-height: 2rem;
   font-size: 2rem;
   padding-top: 16px;
   color: #fffa;
+  line-height: 1.2;
 }
 body main section#result b {
   color: white;
@@ -54,10 +58,10 @@ body main section#result b {
 body main a:any-link {
   max-width: calc(100% - 16px);
   display: block;
-  margin-top: 2rem;
-  font-weight: bold;
   font-size: 1.5rem;
-  color: white;
+  color: #fff8;
+  margin: auto;
+  margin-top: 2rem;
 }
 body footer {
   position: fixed;
@@ -73,4 +77,20 @@ body footer {
   text-overflow: ellipsis;
   white-space: nowrap;
   -webkit-line-clamp: 1;
+}
+@media (max-width: 768px) {
+  body main h1 {
+    font-size: 3rem;
+  }
+  body main a:any-link {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 375px) {
+  body main h1 {
+    font-size: 2rem;
+  }
+  body main a:any-link {
+    font-size: 1rem;
+  }
 }
