@@ -87,6 +87,10 @@ const ggPrices = {
   "giffgaff member services": {
     payg: "Free",
     goodybag: "Free"
+  },
+  "non-geographical standard rate": {
+    payg: "15p/min",
+    goodybag: "Inclusive"
   }
 };
 
@@ -159,6 +163,11 @@ document.querySelector("main input").addEventListener("input", function(e) {
 
   try {
     const type = libphonenumber.parsePhoneNumberFromString(num).getType();
+
+    if (type === "UAN" && numStr.startsWith("03")) {
+      ShowNumberType("Non-geographical standard rate");
+      return;
+    }
 
     const valueToText = {
       MOBILE: "mobile",
