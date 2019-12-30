@@ -2,6 +2,7 @@ const specialNumbers = {
   "999": "Emergency Services",
   "112": "Emergency Services",
   "911": "Emergency Services",
+  "01189998819991197253": "Easter Egg",
   "101": "Police Non-emergency",
   "111": "NHS non-emergency",
   "105": "Powercut emergency",
@@ -91,7 +92,10 @@ const ggPrices = {
   "non-geographical standard rate": {
     payg: "15p/min",
     goodybag: "Inclusive"
-  }
+  },
+  "easter egg": {
+    payg: "The IT Crowd",
+    goodybag: "The IT Crowd",
 };
 
 document.querySelector("main input").focus();
