@@ -96,6 +96,7 @@ const ggPrices = {
   "easter egg": {
     payg: "The IT Crowd",
     goodybag: "The IT Crowd",
+  }
 };
 
 document.querySelector("main input").focus();
