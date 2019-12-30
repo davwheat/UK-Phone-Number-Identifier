@@ -126,7 +126,7 @@ document.querySelector("main input").addEventListener("keydown", function(e) {
 document.querySelector("main input").addEventListener("input", function(e) {
   if (this.value.replace(" ", "") === "") {
     document.querySelector("section#result").innerHTML =
-      "Please enter a number...";
+      "Please enter a phone number";
     return;
   }
 

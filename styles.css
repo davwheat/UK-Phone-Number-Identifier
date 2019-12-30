@@ -11,6 +11,8 @@ hr {
   border-bottom: 2px #fff8 solid;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  min-width: 500px;
+  max-width: 50%;
 }
 body {
   padding-bottom: 48px;
@@ -119,12 +121,23 @@ body footer {
 body .faint {
   color: #fff8;
 }
+body p {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media (max-width: 768px) {
   body main h1 {
     font-size: 3rem;
   }
   body main a:any-link {
     font-size: 1.2rem;
+  }
+  body p,
+  body hr {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (max-width: 375px) {
@@ -133,5 +146,11 @@ body .faint {
   }
   body main a:any-link {
     font-size: 1rem;
+  }
+  body p,
+  body hr {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
