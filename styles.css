@@ -6,6 +6,12 @@ body {
   font-weight: 500;
   color: white;
 }
+hr {
+  border: none;
+  border-bottom: 2px #fff8 solid;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 body {
   padding-bottom: 48px;
   background: #030a13;
@@ -78,7 +84,11 @@ body main a:any-link {
   font-size: 1.5rem;
   color: #fff8;
   margin: auto;
-  margin-top: 2rem;
+  margin-top: 0.5em;
+}
+body main a.small-link {
+  font-size: 1rem;
+  display: inline;
 }
 body footer {
   position: fixed;
@@ -94,6 +104,9 @@ body footer {
   text-overflow: ellipsis;
   white-space: nowrap;
   -webkit-line-clamp: 1;
+}
+body .faint {
+  color: #fff8;
 }
 @media (max-width: 768px) {
   body main h1 {
