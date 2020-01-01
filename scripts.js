@@ -210,9 +210,10 @@ document.querySelector("main input").addEventListener("input", function(e) {
   try {
     const NumberInstance = libphonenumber.parsePhoneNumberFromString(num);
 
-    console.log(NumberInstance);
-
-    if (NumberInstance.nationalNumber.startsWith("116")) {
+    if (
+      NumberInstance.nationalNumber.startsWith("116") &&
+      NumberInstance.nationalNumber.length === 6
+    ) {
       ShowNumberType("Support Helpline");
       return;
     }
