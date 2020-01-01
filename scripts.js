@@ -78,7 +78,11 @@ const ggPrices = {
     goodybag: "<span class='warn'>Not included</span>"
   },
   shortcode: {
-    payg: "Free to £5/min (set by service provider)",
+    payg: "Pricing set by service provider (free to £5)",
+    goodybag: "<span class='warn'>Not included</span>"
+  },
+  "society lottery shortcode": {
+    payg: "Pricing set by service provider (free to £5)",
     goodybag: "<span class='warn'>Not included</span>"
   },
   "directory enquiries": {
@@ -127,6 +131,9 @@ document.querySelector("main input").addEventListener("input", function(e) {
   if (this.value.replace(" ", "") === "") {
     document.querySelector("section#result").innerHTML =
       "Please enter a phone number";
+
+    document.querySelector("td#payg").innerHTML = "";
+    document.querySelector("td#goodybag").innerHTML = "";
     return;
   }
 
@@ -140,7 +147,19 @@ document.querySelector("main input").addEventListener("input", function(e) {
 
   this.value = numFmt.input(value);
 
-  const num = numFmt.getNumber().number;
+  a = numFmt.getNumber();
+
+  const num = a ? a.number : "";
+  if (!a) {
+    document.querySelector("section#result").innerHTML =
+      "Please enter a phone number";
+
+    document.querySelector("td#payg").innerHTML = "";
+    document.querySelector("td#goodybag").innerHTML = "";
+    return;
+  }
+
+  delete a;
 
   const numStr = this.value.replace(/\ /g, "");
 
@@ -167,11 +186,18 @@ document.querySelector("main input").addEventListener("input", function(e) {
     if (numStr.startsWith("70")) {
       ShowNumberType("Charity Shortcode");
       return;
-    } else if (numStr.startsWith("116")) {
-      ShowNumberType("Support helpline");
+    } else if (numStr.startsWith("72")) {
+      ShowNumberType("Society Lottery Shortcode");
       return;
     } else {
-      ShowNumberType("Shortcode");
+      if (
+        numStr.startsWith("6") ||
+        numStr.startsWith("8") ||
+        numStr.startsWith("7")
+      ) {
+        if (numStr.startsWith("+44")) ShowNumberType("Shortcode");
+        else ShowNumberType("Shortcode");
+      }
       return;
     }
   }
@@ -183,6 +209,13 @@ document.querySelector("main input").addEventListener("input", function(e) {
 
   try {
     const NumberInstance = libphonenumber.parsePhoneNumberFromString(num);
+
+    console.log(NumberInstance);
+
+    if (NumberInstance.nationalNumber.startsWith("116")) {
+      ShowNumberType("Support Helpline");
+      return;
+    }
 
     if (NumberInstance.countryCallingCode !== "44") {
       ShowNumberType("International", NumberInstance.country);
@@ -211,17 +244,28 @@ document.querySelector("main input").addEventListener("input", function(e) {
       undefined: "..."
     };
 
-    ShowNumberType(valueToText[type ? type : typeof type]);
+    ShowNumberType(
+      valueToText[type ? type : typeof type],
+      NumberInstance.country
+    );
   } catch {}
 });
 
 function ShowNumberType(type, country = undefined) {
   if (type === "...") {
-    document.querySelector("section#result").innerHTML =
-      "I don't know this number";
+    if (country) {
+      document.querySelector("section#result").innerHTML =
+        "I don't know this number";
 
-    document.querySelector("td#payg").innerHTML = "Unknown";
-    document.querySelector("td#goodybag").innerHTML = "Unknown";
+      document.querySelector("td#payg").innerHTML = "Unknown";
+      document.querySelector("td#goodybag").innerHTML = "Unknown";
+    } else {
+      document.querySelector("section#result").innerHTML =
+        "Please enter more digits";
+
+      document.querySelector("td#payg").innerHTML = "";
+      document.querySelector("td#goodybag").innerHTML = "";
+    }
   } else if (type === "International") {
     document.querySelector("section#result").innerHTML =
       "This is an <b>" + type.toLowerCase() + "</b> number";
